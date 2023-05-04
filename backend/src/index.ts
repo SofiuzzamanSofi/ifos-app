@@ -1,31 +1,30 @@
 import express, { Request, Response, Application, NextFunction } from 'express';
 // import * as dotenv from 'dotenv';
 import cors from 'cors';
-import Colors = require('colors.ts');
+import Colors = require('colors');
 Colors.enable();
-import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 const app: Application = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
-app.use(bodyParser.json());
 
 app.get('/', (req: Request, res: Response) => {
     console.log("hiddeooooooooooooooooooo");
     console.log("hello", process.env.FRONT_END_URL)
     res.send({
         name: "sofi",
-        age: 20,
-        email: "nnheo@example.com",
-        phone: "1234567890",
-        address: "dhs",
         url: process.env.FRONT_END_URL,
-
+        version: "1.0.0",
+        message: "Hello World!",
+        date: new Date(),
+        env: "process.env.NODE_ENV",
     });
 });
 
 app.listen(port, () => {
-    console.log(`Server listening on port: ${port}`.bg_cyan);
+    console.log(`Server listening on port: ${port}`.bgCyan);
 });
