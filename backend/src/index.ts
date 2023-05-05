@@ -17,11 +17,6 @@ app.get('/', (req: Request, res: Response) => {
     console.log("hello", process.env.FRONT_END_URL)
     res.send({
         name: "sofi",
-        url: process.env.FRONT_END_URL,
-        version: "1.0.0",
-        message: "Hello World!",
-        date: new Date(),
-        env: "process.env.NODE_ENV",
     });
 });
 
